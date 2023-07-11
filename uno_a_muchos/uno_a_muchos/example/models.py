@@ -9,4 +9,8 @@ class Simple(models.model):
 
     def __str__(self):
         return self.url
-#
+class DateExample(models.Model):
+    the_date = models.DateField()
+
+class NullExample(models.Model):
+    col = models.CharField(max_length=10, blank=True, null=True)
