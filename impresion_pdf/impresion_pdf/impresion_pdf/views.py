@@ -19,6 +19,9 @@ class GeneratePdf(View):
             response = HttpResponse(pdf, content_type='application/pdf')
             filename = "%s.pdf" %("nombre de descarga")
             content = "inline; filename=%s" %(filename)
+            download = request.GET.get("download")
+            if download:
+                content = "attachment; filename=%s" %(filename)
             response['Content-Disposition'] = content
             return response
         return HttpResponse("Not found")
